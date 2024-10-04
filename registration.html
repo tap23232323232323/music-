@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Academy Registration</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('music.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        /* Registration Container */
+        .registration-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFD700;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-family: 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+        }
+
+        input[type="submit"] {
+            background-color: #FFD700;
+            color: #333;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FFC107;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .registration-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Registration Form Container -->
+    <div class="registration-container">
+        <h1>Music Academy Sign Up</h1>
+        <form id="registrationForm">
+            <!-- Full Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <!-- Age -->
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required min="5">
+
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer_not_to_say">Prefer Not to Say</option>
+            </select>
+
+            <!-- Preferred Instrument -->
+            <label for="instrument">Preferred Instrument:</label>
+            <select id="instrument" name="instrument" required>
+                <option value="">Select Instrument</option>
+                <option value="guitar">Guitar</option>
+                <option value="piano">Piano</option>
+                <option value="drums">Drums</option>
+                <option value="saxophone">Saxophone</option>
+                <option value="violin">Violin</option>
+            </select>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event){
+            event.preventDefault(); // Prevent the form from submitting automatically
+
+            // Get form field values
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const instrument = document.getElementById('instrument').value;
+
+            // Basic validation
+            if (name === '' || age === '' || gender === '' || instrument === '') {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            if (isNaN(age) || age < 5) {
+                alert('Please enter a valid age of 5 or older.');
+                return;
+            }
+
+            // If all checks pass, submit the form or do whatever you'd like with the data
+            alert('Registration successful for ' + name + '!');
+
+        
+    </script>
+
+</body>
+</html>
